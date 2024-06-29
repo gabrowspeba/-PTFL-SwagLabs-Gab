@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on darwin)" generated="2024-06-29T18:40:55.553492" rpa="false" schemaversion="5">
+<suite id="s1" name="Sauce TST" source="/Users/gabrielbarbosa/Docs/Sauce_TST">
+<suite id="s1-s1" name="Tests" source="/Users/gabrielbarbosa/Docs/Sauce_TST/tests">
+<suite id="s1-s1-s1" name="Sauce Test" source="/Users/gabrielbarbosa/Docs/Sauce_TST/tests/Sauce_Test.robot">
+<test id="s1-s1-s1-t1" name="TC02: Validate Error Message when Using Wrong Credentials" line="21">
+<kw name="Given that User have wrong credentials" owner="common">
+<kw name="Open Browser to Login Page" owner="common">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-06-29T18:40:55.702685" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${SAUCE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-06-29T18:40:55.702484" elapsed="1.968041"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2024-06-29T18:40:57.671106" elapsed="0.395915"/>
+</kw>
+<status status="PASS" start="2024-06-29T18:40:55.702231" elapsed="2.365030"/>
+</kw>
+<kw name="Input Wrong Credentials" owner="common">
+<kw name="Wait Until Element Is Enabled" owner="SeleniumLibrary">
+<arg>locator=//*[@id="user-name"]</arg>
+<arg>timeout=3s</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.068135" elapsed="0.028999"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-06-29T18:40:58.097654" level="INFO">Typing text 'standard_user' into text field 'user-name'.</msg>
+<arg>locator=user-name</arg>
+<arg>text=${SAUCE_ID}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.097341" elapsed="0.188734"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2024-06-29T18:40:58.286503" level="INFO">Typing password into text field '//*[@id="password"]'.</msg>
+<msg time="2024-06-29T18:40:58.315057" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>locator=//*[@id="password"]</arg>
+<arg>password=1234556</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.286282" elapsed="0.071768"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-06-29T18:40:58.359310" level="INFO">Clicking button '//*[@id="login-button"]'.</msg>
+<arg>locator=//*[@id="login-button"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.358618" elapsed="0.070161"/>
+</kw>
+<status status="PASS" start="2024-06-29T18:40:58.067628" elapsed="0.361279"/>
+</kw>
+<status status="PASS" start="2024-06-29T18:40:55.701933" elapsed="2.727056"/>
+</kw>
+<kw name="When gets login error" owner="common">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>locator=//*[@class="error-button"]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.429646" elapsed="0.018379"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-06-29T18:40:58.464316" level="INFO">Element '//*[text()='Epic sadface: Username and password do not match any user in this service']' is displayed.</msg>
+<arg>locator=//*[text()='Epic sadface: Username and password do not match any user in this service']</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.448227" elapsed="0.016177"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>message=Negative test ok</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.464603" elapsed="0.000216"/>
+</kw>
+<status status="PASS" start="2024-06-29T18:40:58.429367" elapsed="0.035542"/>
+</kw>
+<kw name="Then Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.465131" elapsed="0.112245"/>
+</kw>
+<tag>negative</tag>
+<status status="PASS" start="2024-06-29T18:40:55.701001" elapsed="2.876754"/>
+</test>
+<kw name="Teardown Test" owner="common" type="TEARDOWN">
+<kw name="Close All Browsers" owner="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2024-06-29T18:40:58.578799" elapsed="0.000175"/>
+</kw>
+<doc>Close all browsers after each test run</doc>
+<status status="PASS" start="2024-06-29T18:40:58.578554" elapsed="0.000508"/>
+</kw>
+<doc>This file contains all test cases for this project</doc>
+<status status="PASS" start="2024-06-29T18:40:55.581061" elapsed="2.998059"/>
+</suite>
+<status status="PASS" start="2024-06-29T18:40:55.580231" elapsed="2.999729"/>
+</suite>
+<status status="PASS" start="2024-06-29T18:40:55.555280" elapsed="3.025173"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">negative</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Sauce TST">Sauce TST</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Sauce TST.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Sauce Test">Sauce TST.Tests.Sauce Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

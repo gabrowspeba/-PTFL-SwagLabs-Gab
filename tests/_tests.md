@@ -1,0 +1,1 @@
+All test scenarios can be found in this folder, subdivided into multiple suites which deal with particular areas of the application
