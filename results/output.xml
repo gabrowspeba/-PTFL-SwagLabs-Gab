@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.9.6 on darwin)" generated="2024-07-02T15:11:58.059712" rpa="false" schemaversion="5">
+<suite id="s1" name="-PTFL-SwagLabs-Gab" source="/Users/gabrielbarbosa/Docs/-PTFL-SwagLabs-Gab">
+<suite id="s1-s1" name="Tests" source="/Users/gabrielbarbosa/Docs/-PTFL-SwagLabs-Gab/tests">
+<suite id="s1-s1-s1" name="03. Serve API" source="/Users/gabrielbarbosa/Docs/-PTFL-SwagLabs-Gab/tests/03. Serve_API.robot">
+<test id="s1-s1-s1-t1" name="Create a User" line="18">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-07-02T15:11:58.287750" level="INFO">Creating Session using : alias=serve_rest, url=https://serverest.dev, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=serve_rest</arg>
+<arg>url=${SERVE_REST_URL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-07-02T15:11:58.287367" elapsed="0.000700"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-07-02T15:11:58.289354" level="INFO">${payload} = {'Content-Type': 'application/json'}</msg>
+<var>${payload}</var>
+<arg>Content-Type=application/json</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-07-02T15:11:58.288348" elapsed="0.001138"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2024-07-02T15:11:58.600280" level="INFO">POST Request : url=https://serverest.dev/usuarios 
+ path_url=/usuarios 
+ headers={'User-Agent': 'python-requests/2.32.3', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '95'} 
+ body={"nome": "Gab API", "email": "gabAPIt@qa.com.br", "password": "teste", "administrador": "true"} 
+ </msg>
+<msg time="2024-07-02T15:11:58.600654" level="INFO">POST Response : url=https://serverest.dev/usuarios 
+ status=400, reason=Bad Request 
+ headers={'access-control-allow-origin': '*', 'x-dns-prefetch-control': 'off', 'x-frame-options': 'SAMEORIGIN', 'strict-transport-security': 'max-age=15552000; includeSubDomains', 'x-download-options': 'noopen', 'x-content-type-options': 'nosniff', 'x-xss-protection': '1; mode=block', 'content-type': 'application/json; charset=utf-8', 'X-Cloud-Trace-Context': '208664988073dba68912f9963f980497', 'Date': 'Tue, 02 Jul 2024 14:11:58 GMT', 'Server': 'Google Frontend', 'Content-Length': '53'} 
+ body={
+    "message": "Este email já está sendo usado"
+} 
+ </msg>
+<msg time="2024-07-02T15:11:58.600968" level="INFO">/Users/gabrielbarbosa/Library/Python/3.9/lib/python/site-packages/urllib3/connectionpool.py:1099: InsecureRequestWarning: Unverified HTTPS request is being made to host 'serverest.dev'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-07-02T15:11:58.601350" level="FAIL">Url: https://serverest.dev/usuarios Expected status: 400 != 201</msg>
+<var>${response}</var>
+<arg>alias=serve_rest</arg>
+<arg>url=/usuarios</arg>
+<arg>expected_status=201</arg>
+<arg>headers=${payload}</arg>
+<arg>data={"nome": "Gab API", "email": "gabAPIt@qa.com.br", "password": "teste", "administrador": "true"}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="FAIL" start="2024-07-02T15:11:58.289922" elapsed="0.322422">Url: https://serverest.dev/usuarios Expected status: 400 != 201</status>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<var>${msg}</var>
+<arg>${response.json()['message']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2024-07-02T15:11:58.612821" elapsed="0.000198"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2024-07-02T15:11:58.613321" elapsed="0.000164"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${msg}</arg>
+<arg>User created successfully</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" start="2024-07-02T15:11:58.613773" elapsed="0.000160"/>
+</kw>
+<doc>Test to create a new user using Serve Rest</doc>
+<status status="FAIL" start="2024-07-02T15:11:58.285976" elapsed="0.328333">Url: https://serverest.dev/usuarios Expected status: 400 != 201</status>
+</test>
+<status status="FAIL" start="2024-07-02T15:11:58.093514" elapsed="0.521931"/>
+</suite>
+<status status="FAIL" start="2024-07-02T15:11:58.091416" elapsed="0.525847"/>
+</suite>
+<status status="FAIL" start="2024-07-02T15:11:58.064301" elapsed="0.554021"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="-PTFL-SwagLabs-Gab">-PTFL-SwagLabs-Gab</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1" name="Tests">-PTFL-SwagLabs-Gab.Tests</stat>
+<stat pass="0" fail="1" skip="0" id="s1-s1-s1" name="03. Serve API">-PTFL-SwagLabs-Gab.Tests.03. Serve API</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
