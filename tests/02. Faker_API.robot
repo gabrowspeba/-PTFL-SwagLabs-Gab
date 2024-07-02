@@ -84,3 +84,5 @@ TC05: Test using FOR
     
 
     Log To Console    Went out loop with this country -> ${var}
+
+    Delete All Sessions
